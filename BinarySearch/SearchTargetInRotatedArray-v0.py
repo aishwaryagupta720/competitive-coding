@@ -4,6 +4,7 @@ class Solution:
             if target==nums[0]:
                 return 0
             else: return -1
+        # Finding the Rotation sand start of array(min element)
         low,high=0,len(nums)-1
         start=-1
         while low<high:
@@ -14,7 +15,8 @@ class Solution:
                 high=mid
         start=low
         print(start)
-        low,high=0,start-1
+        # dividing array into 2 parts , and searching in each
+        low,high=0,start-1 
         if target>nums[high]:
                 return -1
         while low<=high:
@@ -26,6 +28,7 @@ class Solution:
             elif nums[mid]>target:
                 high=mid-1
             else: return mid
+        # part 2 of array
         low,high=start, len(nums)-1
         if target>nums[high]:
                 return -1
