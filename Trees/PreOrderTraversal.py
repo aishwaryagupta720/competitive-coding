@@ -12,12 +12,11 @@ class Solution:
             if root==None:
                 return
             result.append(root.val)
-            left=treeTraversal(root.left)
-            if left:
-                result.append(left.val)
-            right=treeTraversal(root.right)
-            if right:
-                result.append(right.val)
+            
+            treeTraversal(root.left)
+
+            treeTraversal(root.right)
+
 
         treeTraversal(root)
         return result

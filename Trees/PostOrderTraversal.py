@@ -11,16 +11,17 @@ class Solution:
         def treeTraversal(root):
             if root==None:
                 return
-            left=treeTraversal(root.left)
-            if left:
-                result.append(left.val)
-            right=treeTraversal(root.right)
-            if right:
-                result.append(right.val)
+            treeTraversal(root.left)
+
+            treeTraversal(root.right)
+
             result.append(root.val)
         
         treeTraversal(root)
         return result
+            
+            
+
             
             
 # Input: root = [1,null,2,3]

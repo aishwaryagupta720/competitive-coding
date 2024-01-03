@@ -11,18 +11,15 @@ class Solution:
         def traverseTree(root):
             if root==None:
                 return
-            left=traverseTree(root.left)
-            if left:
-                result.append(left.val)
+            traverseTree(root.left)
 
             result.append(root.val)
             
-            right=traverseTree(root.right)
-            if right:
-                result.append(right.val)
+            traverseTree(root.right)
             
         traverseTree(root)
         return result
+
 
 
 # Input: root = [1,null,2,3]
