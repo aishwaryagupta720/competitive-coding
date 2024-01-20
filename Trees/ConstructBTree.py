@@ -12,6 +12,7 @@ class Solution:
                 return None
             mid = inorder.index(preorder[0])
             root= TreeNode(preorder[0])
+            # mid index tells the number of left subtree elements in inorder , therefore we use that to calculate the left part in preorder after the first root element
             root.left = traverse(inorder[:mid],preorder[1:mid+1])
             root.right = traverse(inorder[mid+1:],preorder[mid+1:])
 
