@@ -38,3 +38,35 @@ class Solution:
 
 
 # push the solution back in stack for homogenity
+    
+    class Solution:
+    def evalRPN(self, tokens: List[str]) -> int:
+        stack=[]
+        for i in tokens:
+            if i.isalnum() or i.lstrip("-").isalnum():
+                stack.append(int(i))
+            else:
+                if i=="+":
+                    x=stack.pop()
+                    y=stack.pop()
+                    stack.append(y+x)
+                if i=="-":
+                    x=stack.pop()
+                    y=stack.pop()
+                    stack.append(y-x)
+                if i=="*":
+                    x=stack.pop()
+                    y=stack.pop()
+                    stack.append(y*x)
+                if i=="/":
+                    x=stack.pop()
+                    y=stack.pop()
+                    stack.append(int(y/x))
+                    
+        return stack[0]
+
+
+
+
+
+        
