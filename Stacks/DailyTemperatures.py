@@ -3,7 +3,6 @@ class Solution:
         answer=[0 for i in range(len(temperatures))]
         stack=[(temperatures[0],0)]
         for i in range(1,len(temperatures)):
-            days = 0
             j=len(stack)-1
             while j>=0:
                 if stack[j][0]<temperatures[i]:
@@ -16,7 +15,21 @@ class Solution:
             stack.append((temperatures[i],i))
                 
         return answer
-    
+# Better Approach 
+
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        stack=[]
+        ans=[0]*len(temperatures)
+        for i,temp in enumerate(temperatures):
+            while stack and stack[-1][0]<temp:
+                index=stack[-1][1]
+                diff=i-stack.pop()[1]
+                ans[index]= diff
+            stack.append((temp,i))
+        return ans
+
+
 # Example 1:
 
 # Input: temperatures = [73,74,75,71,69,72,76,73]
